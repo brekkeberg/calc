@@ -14,7 +14,7 @@ body{
 }
 .calcBody{
     height: min(90vmin, 700px);
-    width: min(45vmin, 350px);
+    width: min(50vmin, 350px);
     border-radius: 3vmin;
     display: flex;
     flex-direction: column;
@@ -29,8 +29,26 @@ body{
     flex: 1;
     border-radius: 20px;
 }
-.calcBody .screen{
+.calcBody .screenContainer{
     flex: 0 0 35%;
+    display: flex;
+    align-items: center;
+
+}
+.calcBody .screenContainer .screen{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12),
+                2px 2px 1px inset rgba(0,0,0,0.12),
+                3px 3px 2px inset rgba(0,0,0,0.12),
+                -1px -1px 0px inset rgba(0, 0, 0, 0.08);
+    height: 90%;
+    width: 90%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: sans-serif;
+    text-align: right;
+
 }
 .calcBody .buttonContainer{
     padding: 1vmin;
@@ -46,9 +64,13 @@ body{
     align-items: center;
 }
 button{
-    width: 10vmin;
-    height: 70%;
+    background-color:rgba(135, 206, 250, 0.566);
+    width: 50%;
+    height: 100%;
     margin: 1%;
-    border-radius: 3vmin;
+    padding: 0px;
+    border-radius: 6vmin;
     border: 0px;
+    font-size: min(5vmin, 20px);
+    box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12);
 }
