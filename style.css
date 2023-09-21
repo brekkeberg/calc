@@ -69,6 +69,9 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+.buttonContainer div .buttonEquals{
+    flex: 0 0 47.5%;
+}
 button{
     background-color:rgba(135, 206, 250, 0.566);
     width: 50%;
@@ -79,4 +82,7 @@ button{
     border: 0px;
     font-size: min(5vmin, 20px);
     box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12);
+}
+button:active{
+    border: 2px solid black;
 }
