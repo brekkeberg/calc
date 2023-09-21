@@ -69,7 +69,10 @@ body{
 .buttonContainer div .buttonClear{
     flex: 0 0 50%;
     background-color: rgba(255, 192, 203, 0.459); 
-
+}
+.buttonContainer div .buttonClear:hover{
+    color: rgba(0, 0, 0, .75);
+    background-color: rgba(225, 168, 177,.5);
 }
 
 .buttonContainer div .buttonClear:active{
@@ -91,6 +94,7 @@ button{
 }
 button:hover{
     color: rgba(0, 0, 0, .75);
+    background-color: rgba(120, 201, 230, 0.2);
 }
 button:active{
     box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
