@@ -32,22 +32,25 @@ function storeNumber(){
     }
 
     adjustFontSize.call();
+    displayStatus.call();
 }
 
 function storeOperator(){
-    // stores the operator that was just pressed
-    operator = this.innerText;
     // if an operator has already been pressed, computes the function
     if (operatorHasBeenPressed === true){
         compute.call();
-    } else{
+    } else {
         operatorHasBeenPressed = true;
     }
+    // stores the operator that was just pressed
+    operator = this.innerText;
+    operatorHasBeenPressed = true;
     // apends operator that was pressed to screen
     screenOutput = screenOutput + operator;
     screen.innerText = screenOutput;
 
     adjustFontSize.call();
+    displayStatus.call();
 }
 
 function clearScreen(){
@@ -59,6 +62,7 @@ function clearScreen(){
     secondNumber = 0;
     operator = "";
     operatorHasBeenPressed = false;
+    displayStatus.call();
 }
 
 function compute(){
@@ -75,8 +79,11 @@ function compute(){
     screen.innerText = solution;
     firstNumber = solution;
     secondNumber = 0;
+    operator = "";
+    operatorHasBeenPressed = false;
 
     adjustFontSize.call();
+    displayStatus.call();
 }
 
 // math functions
@@ -99,7 +106,9 @@ function divide(x,y){
 
 function adjustFontSize(){
     screenOutputString = screenOutput.toString();
-    if (screenOutputString.length >=16){
+    if (screenOutputString.length >=18){
+        screen.style.cssText = "font-size: 3vmin;"
+    } else if (screenOutputString.length >=16){
         screen.style.cssText = "font-size: 3.5vmin;"
     } else if (screenOutputString.length >=14){
         screen.style.cssText = "font-size: 4vmin;"
@@ -107,9 +116,19 @@ function adjustFontSize(){
         screen.style.cssText = "font-size: 5vmin;"
     } else if (screenOutputString.length >=10){
         screen.style.cssText = "font-size: 6vmin;"
-    } else if (screenOutputString.length >=9) {
+    } else if (screenOutputString.length >=8) {
         screen.style.cssText = "font-size: 7vmin;"
     } else {
         screen.style.cssText = "font-size: 8vmin;"
     }
+}
+
+
+function displayStatus(){
+    console.log("Screen Output: " + screenOutput)
+    console.log("Screen Output String: " + screenOutputString)
+    console.log("First #: " + firstNumber)
+    console.log("Second #: " + secondNumber)
+    console.log("Operator: " + operator)
+    console.log("Has Operator been pressed: " + operatorHasBeenPressed)
 }
