@@ -74,6 +74,16 @@ body{
 .buttonContainer div .buttonEquals{
     flex: 0 0 47.5%;
 }
+.buttonContainer div .buttonClear{
+    flex: 0 0 47.5%;
+    background-color: pink;
+}
+
+.buttonContainer div .buttonClear:active{
+    box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
+    background-color: rgb(225, 168, 177);
+}
+
 button{
     background-color:rgba(135, 206, 250, 0.566);
     color: white;
