@@ -107,19 +107,19 @@ function divide(x,y){
 function adjustFontSize(){
     screenOutputString = screenOutput.toString();
     if (screenOutputString.length >=18){
-        screen.style.cssText = "font-size: 3vmin;"
-    } else if (screenOutputString.length >=16){
-        screen.style.cssText = "font-size: 3.5vmin;"
-    } else if (screenOutputString.length >=14){
         screen.style.cssText = "font-size: 4vmin;"
-    } else if (screenOutputString.length >=12){
+    } else if (screenOutputString.length >=16){
         screen.style.cssText = "font-size: 5vmin;"
-    } else if (screenOutputString.length >=10){
+    } else if (screenOutputString.length >=14){
         screen.style.cssText = "font-size: 6vmin;"
-    } else if (screenOutputString.length >=8) {
+    } else if (screenOutputString.length >=12){
         screen.style.cssText = "font-size: 7vmin;"
-    } else {
+    } else if (screenOutputString.length >=10){
         screen.style.cssText = "font-size: 8vmin;"
+    } else if (screenOutputString.length >=8) {
+        screen.style.cssText = "font-size: 10vmin;"
+    } else {
+        screen.style.cssText = "font-size: 12vmin;"
     }
 }
 

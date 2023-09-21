@@ -1,3 +1,8 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 300;
+}
 body{
     display: flex;
     justify-content: center;
@@ -25,28 +30,32 @@ body{
     flex: 0 0 25%;
     padding: 1vmin;
     padding-bottom: 0vmin;
-}
-.calcBody .screenContainer .screen{
     background-color: rgba(228, 228, 228, 0.5);
     box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12),
                 2px 2px 1px inset rgba(0,0,0,0.12),
                 3px 3px 2px inset rgba(0,0,0,0.12),
                 -1px -1px 0px inset rgba(0, 0, 0, 0.08);
-    height: 100%;
-    width: 100%;
-    font-family: sans-serif;
+    display:flex;
+    align-items: center;
+}
+.calcBody .screenContainer .screen{
+
+    height: 70%;
+    width: 99%;
     text-align: right;
-    color: rgb(45, 45, 45);
-    font-size: 8vmin;
+    color: rgb(61, 61, 61);
+    font-size: 15em;
+    align-items: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
+
 .calcBody .buttonContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1vmin;
+    padding-top: 1vmin;
 }
 .buttonContainer div{
     display:flex;
@@ -59,7 +68,8 @@ body{
 }
 .buttonContainer div .buttonClear{
     flex: 0 0 50%;
-    background-color: pink;
+    background-color: rgba(255, 192, 203, 0.459);
+    box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12);
 }
 
 .buttonContainer div .buttonClear:active{
@@ -69,12 +79,12 @@ body{
 
 button{
     flex: 1;
-    background-color:rgba(135, 206, 250, 0.566);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.194);
+    color: rgba(0, 0, 0, 0.445);
     height: 100%;
     padding: 0px;
     border: 0px;
-    font-size: min(5vmin, 40px);
+    font-size: 5em;
     font-weight: bolder;
     box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12);
 }
