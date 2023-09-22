@@ -11,6 +11,7 @@ const buttonNumber = document.querySelectorAll('.buttonNumber');
 const buttonOperator = document.querySelectorAll('.buttonOperator');
 const buttonClear = document.querySelector('.buttonClear');
 const buttonEquals = document.querySelector('.buttonEquals');
+const buttonBackspace = document.querySelector('.buttonBackspace');
 
 //creates event listener for all buttons
 for (let i = 0; i <= buttonNumber.length - 1; i++){
@@ -21,6 +22,7 @@ for (let i = 0; i <= buttonOperator.length - 1; i++){
 }
 buttonClear.addEventListener('click', clearScreen);
 buttonEquals.addEventListener('click', compute);
+buttonBackspace.addEventListener('click', backspace);
 
 
 
@@ -127,4 +129,9 @@ function displayStatus(){
     console.log("Second #: " + secondNumber)
     console.log("Operator: " + operator)
     console.log("Has Operator been pressed: " + operatorHasBeenPressed)
+}
+
+function backspace(){
+    screenOutput = screenOutput.slice(0,-1);
+    screen.innerText = screenOutput;
 }
