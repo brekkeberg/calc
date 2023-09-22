@@ -68,12 +68,13 @@ body{
 
 .buttonContainer div .buttonEquals:hover{
     color: rgba(0, 0, 0, .75);
-    background-color: rgba(225, 168, 177,.5);
+    background-color: rgba(168, 225, 193, .3);
 }
 
-.buttonContainer div .buttonEquals:hover{
+.buttonContainer div .buttonEquals:active{
+    box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
     color: rgba(0, 0, 0, .75);
-    background-color: rgb(168, 225, 193);
+    background-color: rgb(168, 225, 193, .8);
 }
 
 .buttonContainer div .buttonClear:active{
