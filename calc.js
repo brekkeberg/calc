@@ -1,3 +1,11 @@
+let screenOutput = "";
+let firstNumber = 0;
+let secondNumber = 0;
+let operator = "";
+let solution = "";
+let screenOutputString ="";
+let operatorHasBeenPressed = false;
+
 const screen = document.querySelector('.screen');
 const buttonNumber = document.querySelectorAll('.buttonNumber');
 const buttonOperator = document.querySelectorAll('.buttonOperator');
@@ -14,25 +22,17 @@ for (let i = 0; i <= buttonOperator.length - 1; i++){
 buttonClear.addEventListener('click', clearScreen);
 buttonEquals.addEventListener('click', compute);
 
-let screenOutput = "";
-let firstNumber = 0;
-let secondNumber = 0;
-let operator = "";
-let solution = "";
-let screenOutputString ="";
-let operatorHasBeenPressed = false;
+
 
 function storeNumber(){
-    screenOutput = screenOutput + this.innerText;
+    screenOutput += this.innerText;
     screen.innerText = screenOutput;
     if (operatorHasBeenPressed === false){
-        firstNumber = firstNumber + this.innerText;
+        firstNumber += this.innerText;
     } else {
-        secondNumber = secondNumber + this.innerText;
+        secondNumber += this.innerText;
     }
-
     adjustFontSize.call();
-    displayStatus.call();
 }
 
 function storeOperator(){
@@ -46,11 +46,9 @@ function storeOperator(){
     operator = this.innerText;
     operatorHasBeenPressed = true;
     // apends operator that was pressed to screen
-    screenOutput = screenOutput + operator;
+    screenOutput += operator;
     screen.innerText = screenOutput;
-
     adjustFontSize.call();
-    displayStatus.call();
 }
 
 function clearScreen(){
@@ -62,7 +60,6 @@ function clearScreen(){
     secondNumber = 0;
     operator = "";
     operatorHasBeenPressed = false;
-    displayStatus.call();
 }
 
 function compute(){
@@ -70,9 +67,9 @@ function compute(){
         solution = add(firstNumber, secondNumber);
     } else if (operator === "-"){
         solution = subtract(firstNumber, secondNumber);
-    } else if (operator === "x"){
+    } else if (operator === "×"){
         solution = multiply(firstNumber, secondNumber);
-    } else if (operator === "/"){
+    } else if (operator === "÷"){
         solution = divide(firstNumber, secondNumber);
     }
     screenOutput = solution;
@@ -81,9 +78,7 @@ function compute(){
     secondNumber = 0;
     operator = "";
     operatorHasBeenPressed = false;
-
     adjustFontSize.call();
-    displayStatus.call();
 }
 
 // math functions
@@ -104,22 +99,23 @@ function divide(x,y){
     return(solution);
 }
 
+
 function adjustFontSize(){
     screenOutputString = screenOutput.toString();
-    if (screenOutputString.length >=18){
-        screen.style.cssText = "font-size: 4vmin;"
-    } else if (screenOutputString.length >=16){
-        screen.style.cssText = "font-size: 5vmin;"
-    } else if (screenOutputString.length >=14){
-        screen.style.cssText = "font-size: 6vmin;"
-    } else if (screenOutputString.length >=12){
-        screen.style.cssText = "font-size: 7vmin;"
+    if (screenOutputString.length >=12){
+        screen.style.cssText = "font-size: 65px"
+    } else if (screenOutputString.length >=11){
+        screen.style.cssText = "font-size: 75px;"
     } else if (screenOutputString.length >=10){
-        screen.style.cssText = "font-size: 8vmin;"
-    } else if (screenOutputString.length >=8) {
-        screen.style.cssText = "font-size: 10vmin;"
+        screen.style.cssText = "font-size: 85px;"
+    } else if (screenOutputString.length >=9){
+        screen.style.cssText = "font-size: 95px;"
+    } else if (screenOutputString.length >=8){
+        screen.style.cssText = "font-size: 105px;"
+    } else if (screenOutputString.length >=7) {
+        screen.style.cssText = "font-size: 120px;"
     } else {
-        screen.style.cssText = "font-size: 12vmin;"
+        screen.style.cssText = "font-size: 130px;"
     }
 }
 

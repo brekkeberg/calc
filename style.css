@@ -5,53 +5,39 @@
 }
 body{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
-.calcContainer{
+.calcBody{
     display:flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-.calcBody{
-    height: max(min(75vmin, 900px),600px);
-    width: max(min(50vmin, 600px),400px);
-    display: flex;
-    flex-direction: column;
+    height: 600px;
+    width: 400px;
 }
 .calcBody div{
     flex: 1;
 }
-.calcBody .screenContainer{
+.calcBody .screen{
     flex: 0 0 25%;
-    padding: 1vmin;
-    padding-bottom: 0vmin;
     background-color: rgba(228, 228, 228, 0.5);
     box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12),
                 2px 2px 1px inset rgba(0,0,0,0.12),
                 3px 3px 2px inset rgba(0,0,0,0.12),
                 -1px -1px 0px inset rgba(0, 0, 0, 0.08);
-    display:flex;
-    align-items: center;
-}
-.calcBody .screenContainer .screen{
-
-    height: 80%;
-    width: 99%;
-    text-align: right;
     color: rgb(61, 61, 61);
-    font-size: 15em;
-    align-items: center;
+    padding-right: 10px;
+    text-align: right;
+    font-size: 50px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
+
 .calcBody .buttonContainer{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -80,6 +66,23 @@ body{
     background-color: rgb(225, 168, 177);
 }
 
+.buttonContainer div .buttonEquals:hover{
+    color: rgba(0, 0, 0, .75);
+    background-color: rgba(225, 168, 177,.5);
+}
+
+.buttonContainer div .buttonEquals:hover{
+    color: rgba(0, 0, 0, .75);
+    background-color: rgb(168, 225, 193);
+}
+
+.buttonContainer div .buttonClear:active{
+    box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
+    background-color: rgb(225, 168, 177);
+}
+
+
+
 button{
     flex: 1;
     background-color: rgba(255, 255, 255, 0.15);
@@ -87,7 +90,7 @@ button{
     height: 100%;
     padding: 0px;
     border: 0px;
-    font-size: 5em;
+    font-size: 70px;
     font-weight: bolder;
     box-shadow: 1px 1px 0px inset rgba(0,0,0,0.12);
 
