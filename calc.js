@@ -13,6 +13,7 @@ const buttonOperator = document.querySelectorAll('.buttonOperator');
 const buttonClear = document.querySelector('.buttonClear');
 const buttonEquals = document.querySelector('.buttonEquals');
 const buttonBackspace = document.querySelector('.buttonBackspace');
+const buttonOne = document.querySelector('#buttonOne')
 
 //creates event listener for all buttons
 for (let i = 0; i <= buttonNumber.length - 1; i++){
@@ -25,6 +26,19 @@ buttonClear.addEventListener('click', clearScreen);
 buttonEquals.addEventListener('click', compute);
 buttonBackspace.addEventListener('click', backspace);
 
+//creates event listener for key entry
+document.addEventListener('keydown', captureKey);
+
+//LEFT OFF HERE!
+function captureKey(e){
+    if (e.key === "1"){
+        console.log("OUT!");
+        let xxx = document.querySelector('#buttonOne')
+        xxx.click();
+        xxx.style.cssText = "background-color: rgba(120, 200, 230, 0.777);" +
+        "box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33)"
+    }
+}
 
 
 function storeNumber(){
@@ -108,7 +122,11 @@ function divide(x,y){
 
 
 function adjustFontSize(){
-    if (screenOutput.length >=12){
+    if (screenOutput.length >=14){
+        screen.style.cssText = "font-size: 55px"
+    } else if (screenOutput.length >=13){
+        screen.style.cssText = "font-size: 60px"
+    } else if (screenOutput.length >=12){
         screen.style.cssText = "font-size: 65px"
     } else if (screenOutput.length >=11){
         screen.style.cssText = "font-size: 75px;"
@@ -154,3 +172,5 @@ function displayStatus(){
         console.table(allConsoleOutput)
     }
 }
+
+
