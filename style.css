@@ -58,12 +58,12 @@ body{
 }
 .buttonContainer div .buttonClear:hover{
     color: rgba(0, 0, 0, .75);
-    background-color: rgba(225, 168, 177,.5);
+    background-color: rgba(241, 168, 179, 0.3);
 }
 
 .buttonContainer div .buttonClear:active{
     box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
-    background-color: rgb(225, 168, 177);
+    background-color: rgba(251, 98, 121, 0.8);
 }
 
 .buttonContainer div .buttonEquals:hover{
@@ -104,3 +104,16 @@ button:active{
     box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33);
     background-color: rgba(120, 200, 230, 0.777);
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24;
+
+}
+span.size-40 {
+    font-size: 48px;
+    font-variation-settings: 'OPSZ' 48;
+  }

@@ -1,10 +1,11 @@
 let screenOutput = "";
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber = "";
+let secondNumber = "";
 let operator = "";
 let solution = "";
-let screenOutputString ="";
 let operatorHasBeenPressed = false;
+let consoleOutputOn = true;
+let allConsoleOutput = {};
 
 const screen = document.querySelector('.screen');
 const buttonNumber = document.querySelectorAll('.buttonNumber');
@@ -35,6 +36,7 @@ function storeNumber(){
         secondNumber += this.innerText;
     }
     adjustFontSize.call();
+    displayStatus();
 }
 
 function storeOperator(){
@@ -51,17 +53,17 @@ function storeOperator(){
     screenOutput += operator;
     screen.innerText = screenOutput;
     adjustFontSize.call();
+    displayStatus();
 }
 
 function clearScreen(){
-    // clears screen
     screenOutput = "";
     screen.innerText = screenOutput;
-    // resets all stored variables
-    firstNumber = 0;
-    secondNumber = 0;
+    firstNumber = "";
+    secondNumber = "";
     operator = "";
     operatorHasBeenPressed = false;
+    displayStatus();
 }
 
 function compute(){
@@ -77,13 +79,14 @@ function compute(){
     screenOutput = solution;
     screen.innerText = solution;
     firstNumber = solution;
-    secondNumber = 0;
+    secondNumber = "";
     operator = "";
     operatorHasBeenPressed = false;
     adjustFontSize.call();
+    displayStatus();
 }
 
-// math functions
+
 function add(x,y){
     let solution = parseInt(x) + parseInt(y);
     return(solution);
@@ -103,35 +106,49 @@ function divide(x,y){
 
 
 function adjustFontSize(){
-    screenOutputString = screenOutput.toString();
-    if (screenOutputString.length >=12){
+    if (screenOutput.length >=12){
         screen.style.cssText = "font-size: 65px"
-    } else if (screenOutputString.length >=11){
+    } else if (screenOutput.length >=11){
         screen.style.cssText = "font-size: 75px;"
-    } else if (screenOutputString.length >=10){
+    } else if (screenOutput.length >=10){
         screen.style.cssText = "font-size: 85px;"
-    } else if (screenOutputString.length >=9){
+    } else if (screenOutput.length >=9){
         screen.style.cssText = "font-size: 95px;"
-    } else if (screenOutputString.length >=8){
+    } else if (screenOutput.length >=8){
         screen.style.cssText = "font-size: 105px;"
-    } else if (screenOutputString.length >=7) {
+    } else if (screenOutput.length >=7) {
         screen.style.cssText = "font-size: 120px;"
     } else {
         screen.style.cssText = "font-size: 130px;"
     }
 }
 
-
-function displayStatus(){
-    console.log("Screen Output: " + screenOutput)
-    console.log("Screen Output String: " + screenOutputString)
-    console.log("First #: " + firstNumber)
-    console.log("Second #: " + secondNumber)
-    console.log("Operator: " + operator)
-    console.log("Has Operator been pressed: " + operatorHasBeenPressed)
-}
-
 function backspace(){
+    screenOutput = screenOutput.toString();
     screenOutput = screenOutput.slice(0,-1);
     screen.innerText = screenOutput;
+    if (secondNumber !== ""){
+        console.log("CHECK")
+        console.log(typeof(secondNumber))
+        secondNumber = secondNumber.slice(0, -1);
+    } else if (operator !== ""){
+        operator = operator.slice(0, -1);
+        operatorHasBeenPressed = false;
+    } else if (firstNumber !== ""){
+        firstNumber = firstNumber.slice(0,-1);
+    }
+    displayStatus();
+}
+
+function displayStatus(){
+    if (consoleOutputOn === true){
+        allConsoleOutput = {
+            "Screen Output": [screenOutput, typeof(screenOutput)],
+            "First #": [firstNumber, typeof(firstNumber)],
+            "Second #": [secondNumber, typeof(secondNumber)],
+            "Operator": [operator, typeof(operator)],
+            "Has Operator been entered": [operatorHasBeenPressed, typeof(operatorHasBeenPressed)],
+        };
+        console.table(allConsoleOutput)
+    }
 }
