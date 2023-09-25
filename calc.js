@@ -75,6 +75,8 @@ function compute(){
         solution = multiply(firstNumber, secondNumber);
     } else if (operator === "÷"){
         solution = divide(firstNumber, secondNumber);
+    } else {
+        solution = firstNumber;
     }
     screenOutput = solution;
     screen.innerText = solution;
