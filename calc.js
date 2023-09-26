@@ -15,7 +15,7 @@ const buttonEquals = document.querySelector('.buttonEquals');
 const buttonBackspace = document.querySelector('.buttonBackspace');
 const buttonOne = document.querySelector('#buttonOne')
 
-//creates event listener for all buttons
+//creates click event listener for all buttons
 for (let i = 0; i <= buttonNumber.length - 1; i++){
     buttonNumber[i].addEventListener('click', storeNumber);
 }
@@ -29,17 +29,69 @@ buttonBackspace.addEventListener('click', backspace);
 //creates event listener for key entry
 document.addEventListener('keydown', captureKey);
 
-//LEFT OFF HERE!
 function captureKey(e){
-    if (e.key === "1"){
-        console.log("OUT!");
-        let xxx = document.querySelector('#buttonOne')
-        xxx.click();
-        xxx.style.cssText = "background-color: rgba(120, 200, 230, 0.777);" +
-        "box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33)"
+    switch (e.key) {
+        case "1":
+            simulateClick(document.querySelector('#buttonOne'));
+            break;
+        case "2":
+            simulateClick(document.querySelector('#buttonTwo'));
+            break;
+        case "3":
+            simulateClick(document.querySelector('#buttonThree'));
+            break;
+        case "4":
+            simulateClick(document.querySelector('#buttonFour'));
+            break;
+        case "5":
+            simulateClick(document.querySelector('#buttonFive'));
+            break;
+        case "6":
+            simulateClick(document.querySelector('#buttonSix'));
+            break;
+        case "7":
+            simulateClick(document.querySelector('#buttonSeven'));
+            break;
+        case "8":
+            simulateClick(document.querySelector('#buttonEight'));
+            break;
+        case "9":
+            simulateClick(document.querySelector('#buttonNine'));
+            break;
+        case "0":
+            simulateClick(document.querySelector('#buttonZero'));
+            break;
+        case "+":
+            simulateClick(document.querySelector('#buttonAdd'));
+            break;
+        case "-":
+            simulateClick(document.querySelector('#buttonSubtract'));
+            break;
+        case "*":
+            simulateClick(document.querySelector('#buttonMultiply'));
+            break;
+        case "/":
+            simulateClick(document.querySelector('#buttonDivide'));
+            break;
+        case "Enter":
+            simulateClick(document.querySelector('#buttonEquals'));
+            break;
+        case "Delete":
+        case "Backspace":
+            simulateClick(document.querySelector('#buttonBackspace'));
+            break;
     }
 }
 
+function simulateClick(x){
+    x.click();
+    x.style.cssText = "background-color: rgba(120, 200, 230, 0.777);" +
+                    "box-shadow: 0px 0px 5px inset rgba(0,0,0,0.33)";
+    setTimeout(function(){
+        x.style.cssText = "background-color: rgba(255, 255, 255, 0.15)";
+    }, 100);
+
+}
 
 function storeNumber(){
     screenOutput += this.innerText;
